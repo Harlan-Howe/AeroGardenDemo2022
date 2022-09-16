@@ -27,7 +27,10 @@ public class Pod
     public String toString()
     {
         String result ="";
-
+        result = result + "Type: "+plantType;
+        result = result + "\thealth: "+health;
+        result = result + "\theight: "+height;
+        result = result + "\twater usage: "+waterUsagePerTick;
 
         return result;
     }

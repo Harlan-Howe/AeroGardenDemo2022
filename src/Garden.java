@@ -1,6 +1,6 @@
 public class Garden
 {
-    private int waterLevel;
+    private double waterLevel;
     private boolean lightIsOn;
     private Pod pod0, pod1, pod2;
 
@@ -27,5 +27,44 @@ public class Garden
             result+= "The light is off.";
 
         return result;
+    }
+
+    public void growAllPlants()
+    {
+        pod0.grow();
+        pod1.grow();
+        pod2.grow();
+        waterLevel = waterLevel - pod0.getWaterUsagePerTick();
+        waterLevel = waterLevel - pod1.getWaterUsagePerTick();
+        waterLevel = waterLevel - pod2.getWaterUsagePerTick();
+        if (!lightIsOn)
+        {
+            // pods health should be 50%.
+            pod0.setHealth(50);
+            pod1.setHealth(50);
+            pod2.setHealth(50);
+        }
+    }
+
+    public void turnLightOff()
+    {
+        lightIsOn = false;
+    }
+
+    public Pod getTallestPod()
+    {
+        int highest = pod0.getHeight();
+        Pod bestPod = pod0;
+        if (pod1.getHeight()>highest)
+        {
+            highest = pod1.getHeight();
+            bestPod = pod1;
+        }
+        if (pod2.getHeight()>highest)
+        {
+            highest = pod2.getHeight();
+            bestPod = pod2;
+        }
+        return bestPod;
     }
 }

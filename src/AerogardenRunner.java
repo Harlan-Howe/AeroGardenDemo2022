@@ -11,5 +11,14 @@ public class AerogardenRunner
         System.out.println("----------------------");
         Garden myGarden = new Garden();
         System.out.println(myGarden);
+        System.out.println("----------");
+        myGarden.growAllPlants();
+        System.out.println(myGarden);
+        System.out.println("----------");
+        myGarden.turnLightOff();
+        myGarden.growAllPlants();
+        System.out.println(myGarden);
+
+        System.out.println("The tallest Pod is: "+myGarden.getTallestPod().getPlantType());
     }
 }
